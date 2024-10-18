@@ -1,0 +1,40 @@
+// JavaScript function to validate the registration form
+        function validateRegistrationForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Check if the name is not empty
+            if (!name) {
+                alert("Name cannot be empty.");
+                return false; // Prevent form submission
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false; // Prevent form submission
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+
+        // Function to display an error message for registration
+        function displayError(message) {
+            const errorDiv = document.querySelector('.error-message');
+            errorDiv.innerHTML = message; // Set the error message
+            errorDiv.style.display = 'block'; // Show the error message
+        }
+
+         // Check if there's an error attribute in the model
+            const errorMessage = /*[[${error}]]*/ 'null';
+            if (errorMessage !== 'null') {
+                displayError(errorMessage); // Show error message if exists
+            }

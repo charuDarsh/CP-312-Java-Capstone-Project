@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <script th:src="@{/js/script.js}"></script><!-- Include the JavaScript file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // JavaScript code to handle login message
+        function showLoginAlert() {
+    alert("Please log in to start using StockWatch.");
+}
+
+
+    </script>
+</head>
+<body>
+<header>
+    <nav>
+        <ul class="navbar">
+            <li th:classappend="${activePage == 'home'} ? 'active' : ''">
+                <a th:href="@{/users/}">Home</a>
+            </li>
+            <li th:classappend="${activePage == 'register'} ? 'active' : ''">
+                <a th:href="@{/users/register}">Register</a>
+            </li>
+            <li th:classappend="${activePage == 'login'} ? 'active' : ''">
+                <a th:href="@{/users/login}">Login</a>
+            </li>
+            <li th:classappend="${activePage == 'features'} ? 'active' : ''">
+                <a th:href="@{/users/features}">Features</a>
+            </li>
+            <li th:classappend="${activePage == 'contact'} ? 'active' : ''">
+                <a th:href="@{/users/contact}">Contact</a>
+            </li>
+
+        </ul>
+    </nav>
+
+</header>
+<main>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to StockWatch!</h1>
+            <p>Your go-to application for tracking stock prices and managing your watchlists.</p>
+            <a href="#" class="cta-button" onclick="showLoginAlert()">Get Started</a>
+
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Real-time Updates</h3>
+                <p>Get live stock price updates to stay ahead in the market.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-list"></i>
+                <h3>Manage Watchlists</h3>
+                <p>Create and manage multiple watchlists to organize your favorite stocks.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-bell"></i>
+                <h3>Price Alerts</h3>
+                <p>Set alerts to notify you when a stock reaches your target price.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Stock Watch List Application</p>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+</footer>
+</body>
+</html>

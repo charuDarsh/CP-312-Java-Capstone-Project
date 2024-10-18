@@ -1,0 +1,21 @@
+<!-- editStock.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Stock</title>
+    <link rel="stylesheet" th:href="@{/css/editStock.css}" />
+</head>
+<body>
+<h2>Edit Stock</h2>
+<form th:action="@{|/stocks/${userId}/${watchlistId}/edit/${stock.id}|}" method="post">
+    <label for="symbol">Symbol:</label>
+    <input type="text" id="symbol" name="symbol" th:value="${stock.symbol}" required />
+    <br />
+<!--    <label for="name">Name:</label>-->
+<!--    <input type="text" id="name" name="name" th:value="${stock.name}" required />-->
+<!--    <br />-->
+    <button type="submit">Update Stock</button>
+</form>
+<a th:href="@{/stocks/{userId}/{watchlistId}(userId=${userId},watchlistId=${watchlistId})}">Back to Stock List</a>
+</body>
+</html>

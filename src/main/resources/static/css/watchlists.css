@@ -1,0 +1,140 @@
+
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* Centering the content on the page */
+        body {
+            background-color: #f5f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            background-image: url('/images/backgroud4image.jpeg');
+                                    background-size: cover;
+                                       background-position: center;
+                                         background-repeat: no-repeat;
+        }
+
+        /* Container for the content */
+        .container {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        /* Styling the heading */
+        h1 {
+            color: #1d1d1f;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Sub-heading style */
+        h2 {
+            font-size: 18px;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+
+        /* Styling the form elements */
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #007aff;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007aff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        /* Watchlist items styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .watchlist-name {
+            font-size: 16px;
+            color: #1d1d1f;
+        }
+
+        a {
+            color: #007aff;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling the delete form */
+        .delete-form {
+            display: inline;
+        }
+
+        .delete-button {
+            background-color: #ff3b30;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .delete-button:hover {
+            background-color: #d32f2f;
+        }
+
+        /* User ID display styling */
+        .user-info {
+            text-align: center;
+            color: #8e8e93;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }

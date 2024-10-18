@@ -1,0 +1,135 @@
+/* Make sure the footer is always at the bottom */
+
+/* Basic styling for layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+
+}
+
+/* Navbar styling */
+/* Navigation bar styling */
+.navbar {
+    background-color: #333; /* Dark background color */
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Align items in a row */
+    justify-content: center; /* Center the items */
+}
+
+/* Navigation bar items styling */
+.navbar li {
+    display: inline; /* Display items in a line */
+    margin: 0 15px; /* Add some spacing between items */
+}
+
+/* Links inside the navbar */
+.navbar li a {
+    color: white; /* White text color for contrast */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px;
+    padding: 14px 20px; /* Padding for better click area */
+    display: block;
+}
+
+/* Change background color on hover */
+.navbar li a:hover {
+    background-color: #555; /* Slightly lighter shade */
+    color: #fff; /* White text color */
+}
+
+/* Active page styling */
+.navbar .active a {
+    background-color: #007BFF; /* Active page color */
+    color: white;
+    border-radius: 4px; /* Rounded corners */
+}
+
+.active {
+    color: #007BFF; /* Change color for the active link */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Hero section styling */
+.hero {
+    background-image:url('/images/backgroud1image.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-text {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Feature section styling */
+.features {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card i {
+    font-size: 2em;
+    color: #007BFF;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+.social-icons a:hover {
+    color: #007BFF;
+}

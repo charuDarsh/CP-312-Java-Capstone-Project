@@ -1,0 +1,31 @@
+ function validateLoginForm() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false; // Prevent form submission
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+
+        // Function to display an error message for incorrect login
+        function displayError(message) {
+            const errorDiv = document.querySelector('.error');
+            errorDiv.innerHTML = message; // Set the error message
+            errorDiv.style.display = 'block'; // Show the error message
+        }
+
+        const errorMessage = /*[[${error}]]*/ 'null';
+            if (errorMessage !== 'null') {
+                displayError(errorMessage); // Show error message if exists
+            }

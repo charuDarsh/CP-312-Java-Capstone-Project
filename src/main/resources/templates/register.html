@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}" />
+    <script>
+        // JavaScript function to validate the registration form
+        function validateRegistrationForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Check if the name is not empty
+            if (!name) {
+                alert("Name cannot be empty.");
+                return false; // Prevent form submission
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false; // Prevent form submission
+            }
+
+            // Password validation
+            if (password.length < 4) {
+                alert("Password must be at least 4 characters long.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+
+        // Function to display an error message for registration
+        function displayError(message) {
+             alert(message); // Show the alert message
+        }
+    </script>
+</head>
+<body>
+<div class="form-container">
+    <h1>Register</h1>
+    <div class="error-message" style="color:red; display:none;"></div>
+
+    <form th:action="@{/users/register}" method="post" onsubmit="return validateRegistrationForm();">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required/>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required/>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- Login link added below -->
+    <p>Already have an account? <a th:href="@{/users/login}">Login here</a></p>
+</div>
+<script>
+    // Check if there's an error attribute in the model
+    const errorMessage = /*[[${error}]]*/ 'null';
+    if (errorMessage !== 'null') {
+        displayError(errorMessage); // Show error message if exists
+    }
+</script>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Register</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Register</h1>-->
+<!--<form th:action="@{/users/register}" method="post">-->
+<!--    <label for="name">Name:</label>-->
+<!--    <input type="text" id="name" name="name" required/><br/>-->
+<!--    <label for="email">Email:</label>-->
+<!--    <input type="email" id="email" name="email" required/><br/>-->
+<!--    <label for="password">Password:</label>-->
+<!--    <input type="password" id="password" name="password" required/><br/>-->
+<!--    <button type="submit">Register</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stocks in Watchlist</title>
+    <link rel="stylesheet" th:href="@{/css/stocks.css}" />
+    <script>
+        function validateAndSubmitForm(event) {
+            // Prevent form submission to validate first
+            event.preventDefault();
+
+            const symbolInput = document.getElementById("symbol");
+            const symbol = symbolInput.value.trim();
+
+            // Basic validation
+            if (!symbol) {
+                alert("Please enter a stock symbol.");
+                return;
+            }
+
+            // Optionally, you can add more validation here (e.g., regex for valid stock symbols)
+
+            // Show a success message (you can customize this further)
+            alert(`Stock symbol "${symbol}" has been added to your watchlist!`);
+
+            // If validation passes, submit the form
+            event.target.submit(); // Submit the form programmatically
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Stocks in Watchlist</h1>
+    <form th:action="@{/stocks/add}" method="post" onsubmit="validateAndSubmitForm(event)">
+        <input type="hidden" name="userId" th:value="${userId}"/>
+        <input type="hidden" name="watchlistId" th:value="${watchlistId}"/>
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" name="symbol" placeholder="Stock Symbol" required/>
+<!--        <label for="name">Name:</label>-->
+<!--        <input type="text" id="name" name="name" placeholder="Stock Name" required/>-->
+        <button type="submit">Add Stock</button>
+    </form>
+
+    <h2>Your Stocks:</h2>
+    <ul>
+        <li th:each="stock : ${stocks}">
+                <span class="stock-info">
+                    <span th:text="${stock.symbol}">Stock Symbol</span>
+<!--                    <span th:text="${stock.name}">Stock Name</span>-->
+                </span>
+            <!-- Edit Link -->
+            <a th:href="@{|/stocks/${userId}/${watchlistId}/edit/${stock.id}|}" class="edit-link">Edit</a>
+            <form th:action="@{/stocks/{id}(id=${stock.id})}" method="post" class="delete-form">
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="hidden" name="userId" th:value="${userId}"/>
+                <input type="hidden" name="watchlistId" th:value="${watchlistId}"/>
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+        </li>
+    </ul>
+
+<!--    <a th:href="@{/watchlists(userId=${userId})}">Back to Watchlists</a> &lt;!&ndash; Change userId accordingly &ndash;&gt;-->
+    <a th:href="@{/watchlists(userId=${userId})}">Back to Watchlists</a>
+
+</div>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Stocks in Watchlist</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Stocks in Watchlist</h1>-->
+<!--<form th:action="@{/stocks/add}" method="post">-->
+<!--    <input type="hidden" name="watchlistId" th:value="${watchlistId}"/>-->
+<!--    <label for="symbol">Symbol:</label>-->
+<!--    <input type="text" id="symbol" name="symbol" placeholder="Stock Symbol" required/>-->
+<!--    <label for="name">Name:</label>-->
+<!--    <input type="text" id="name" name="name" placeholder="Stock Name" required/>-->
+<!--    <button type="submit">Add Stock</button>-->
+<!--</form>-->
+
+<!--<h2>Your Stocks:</h2>-->
+<!--<ul>-->
+<!--    <li th:each="stock : ${stocks}">-->
+<!--        <span th:text="${stock.symbol}">Stock Symbol</span> - -->
+<!--        <span th:text="${stock.name}">Stock Name</span>-->
+<!--        <form th:action="@{/stocks/{id}(id=${stock.id})}" method="post" style="display:inline;">-->
+<!--            <input type="hidden" name="_method" value="delete"/>-->
+<!--            <input type="hidden" name="watchlistId" th:value="${watchlistId}"/>-->
+<!--            <button type="submit">Delete</button>-->
+<!--        </form>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<!--<a th:href="@{/watchlists?userId=1}">Back to Watchlists</a> &lt;!&ndash; Change userId accordingly &ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
